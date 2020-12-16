@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+
+    <string name="label_email">Email ID</string>
+    <string name="label_password">Password</string>
+    <string name="label_login">Login</string>
+    <string name="label_new_login">New Login</string>
+    <string name="label_cancel">Cancel</string>
+    <string name="label_clear">Clear</string>
 </resources>
