@@ -1,4 +1,4 @@
-package com.udacity.shoestore.ui.login
+package com.udacity.shoestore.ui.welcome
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -9,15 +9,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
+import com.udacity.shoestore.databinding.FragmentWelcomeBinding
+import com.udacity.shoestore.ui.login.LoginViewModel
 
-class LoginFragment : Fragment() {
+class WelcomeFragment : Fragment() {
 
     companion object {
-        fun newInstance() = LoginFragment()
+        fun newInstance() = WelcomeFragment()
     }
 
-    private val mBinding by lazy { FragmentLoginBinding.inflate(layoutInflater) }
-    private val viewModel: LoginViewModel by viewModels()
+    private val mBinding by lazy { FragmentWelcomeBinding.inflate(layoutInflater) }
+    private val viewModel: WelcomeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,4 +31,5 @@ class LoginFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
     }
+
 }

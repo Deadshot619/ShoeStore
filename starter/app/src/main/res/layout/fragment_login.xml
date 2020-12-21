@@ -110,7 +110,7 @@
             app:layout_constraintBottom_toBottomOf="@id/btn_login"
             app:layout_constraintTop_toTopOf="@id/btn_login" />
 
-            <!--        Login -->
+            <!--        New Login -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_new_login"
                 android:layout_width="wrap_content"
