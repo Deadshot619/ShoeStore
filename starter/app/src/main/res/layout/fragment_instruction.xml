@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/space_32"
+        tools:context=".ui.instruction.InstructionFragment">
+
+        <!--        Instruction-->
+        <TextView
+            android:id="@+id/tv_instruction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_instruction"
+            android:textSize="@dimen/textSize_24"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toTopOf="@+id/tv_instruction_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <!--        Actual instruction-->
+        <TextView
+            android:id="@+id/tv_instruction_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_16"
+            android:text="@string/label_instruction_info"
+            android:textAlignment="center"
+            android:textSize="@dimen/textSize_16"
+            app:layout_constraintBottom_toTopOf="@+id/btn_start_shopping"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_instruction" />
+
+        <!--        Next -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_start_shopping"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_16"
+            android:text="@string/label_start_shopping"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_instruction_info" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

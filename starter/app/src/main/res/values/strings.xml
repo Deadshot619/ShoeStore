@@ -12,4 +12,9 @@
 <!--    Welcome-->
     <string name="label_welcome">Welcome!</string>
     <string name="label_next">Next</string>
+
+<!--    Instruction-->
+    <string name="label_instruction">Instruction</string>
+    <string name="label_instruction_info">This is an dummy instruction text. Hope you are having a nice day! Just click the button below &amp; start shopping awesome shoes!!!</string>
+    <string name="label_start_shopping">Start shopping</string>
 </resources>
