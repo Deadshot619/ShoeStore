@@ -1,5 +1,6 @@
 package com.udacity.shoestore.ui.login
 
+import android.content.SharedPreferences
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -28,5 +29,26 @@ class LoginFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        setUpClickListeners()
     }
+
+   fun setUpClickListeners(){
+       mBinding.run {
+//           Login
+           btnLogin.setOnClickListener {
+               
+           }
+
+           //Cancel
+           btnCancel.setOnClickListener {
+
+           }
+
+           //New Login/User
+           btnNewLogin.setOnClickListener {
+
+           }
+       }
+   }
 }
