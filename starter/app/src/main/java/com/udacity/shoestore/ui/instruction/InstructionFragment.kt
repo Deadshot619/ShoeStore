@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentInstructionBinding
 import com.udacity.shoestore.databinding.FragmentLoginBinding
@@ -26,5 +27,17 @@ class InstructionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return mBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setUpClickListeners()
+    }
+
+    private fun setUpClickListeners() {
+        mBinding.btnStartShopping.setOnClickListener {
+            findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToShoeListFragment())
+        }
     }
 }

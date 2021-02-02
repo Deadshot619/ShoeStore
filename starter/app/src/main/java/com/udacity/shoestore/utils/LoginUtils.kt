@@ -17,3 +17,10 @@ fun addLoginUserData(userData: LoginDetail){
         putString(LOGIN_USERS_DATA, Gson().toJson(data))
     }
 }
+
+/**
+ * Method to check if user is already present in DB
+ */
+fun isUserAlreadyPresent(username: String): Boolean = getLoginUserData().find { it.username == username } != null
+
+fun getUserLoginDetail(username: String): LoginDetail? = getLoginUserData().find { it.username == username }

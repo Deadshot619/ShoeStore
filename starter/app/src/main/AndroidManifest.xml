@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.udacity.shoestore">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".ShoeStoreApp"
         android:allowBackup="true"

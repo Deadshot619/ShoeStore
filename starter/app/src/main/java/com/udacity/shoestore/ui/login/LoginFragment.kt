@@ -11,9 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
-import com.udacity.shoestore.utils.addLoginUserData
-import com.udacity.shoestore.utils.getLoginUserData
-import com.udacity.shoestore.utils.showToast
+import com.udacity.shoestore.utils.*
 
 class LoginFragment : Fragment() {
 
@@ -46,7 +44,17 @@ class LoginFragment : Fragment() {
        mBinding.run {
 //           Login
            btnLogin.setOnClickListener {
-               
+               if (mViewModel.userDetail.username.trim().isEmpty() || mViewModel.userDetail.password.trim().isEmpty()){
+                   showToast("Please enter Username & Password")
+                   return@setOnClickListener
+               }
+
+               val tempUserData = getUserLoginDetail(mViewModel.userDetail.username)
+               when {
+                   tempUserData == null -> showToast("User doesn't exist, click on 'New Login' to continue")
+                   tempUserData.password != mViewModel.userDetail.password -> showToast("Incorrect Password")
+                   else -> findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment(username = tempUserData.username))
+               }
            }
 
            //Cancel
@@ -58,7 +66,7 @@ class LoginFragment : Fragment() {
            btnNewLogin.setOnClickListener {
                if (mViewModel.userDetail.username.trim().isEmpty() || mViewModel.userDetail.password.trim().isEmpty()){
                     showToast("Enter Username & Password")
-               } else if (getLoginUserData().find { it.username == mViewModel.userDetail.username } != null){
+               } else if (isUserAlreadyPresent(mViewModel.userDetail.username)){
                    showToast("User already exists")
                } else {
                    addLoginUserData(mViewModel.userDetail)
