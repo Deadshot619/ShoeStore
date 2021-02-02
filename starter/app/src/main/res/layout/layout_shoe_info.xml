@@ -13,14 +13,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/space_8">
+        android:paddingBottom="@dimen/space_8"
+        android:paddingTop="@dimen/space_8"
+        android:paddingStart="@dimen/space_16"
+        android:paddingEnd="@dimen/space_16">
 
 <!--        Shoe Image-->
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_shoe"
-            android:layout_width="wrap_content"
+            android:layout_width="128dp"
             android:layout_height="wrap_content"
             tools:src="@tools:sample/avatars"
+            app:glideImage="@{data.images[0]}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
@@ -31,7 +35,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_16"
-            android:layout_marginEnd="@dimen/space_16"
             tools:text="Shoe 1"
             android:textSize="@dimen/textSize_18"
             android:text="@{data.name}"
