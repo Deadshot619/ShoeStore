@@ -1,7 +1,5 @@
 package com.udacity.shoestore.utils
 
-import android.content.SharedPreferences
-import android.widget.Toast
 import androidx.core.content.edit
 import com.google.gson.Gson
 import com.udacity.shoestore.ShoeStoreApp
@@ -9,10 +7,10 @@ import com.udacity.shoestore.models.LoginDetail
 
 private const val LOGIN_USERS_DATA = "login_users_data"
 
-fun getLoginUserData(): List<LoginDetail> = Gson().fromJson<List<LoginDetail>>(ShoeStoreApp.sharedPref?.getString(LOGIN_USERS_DATA, "[]") ?: "[]")
+fun getAllLoginUserData(): List<LoginDetail> = Gson().fromJson<List<LoginDetail>>(ShoeStoreApp.sharedPref?.getString(LOGIN_USERS_DATA, "[]") ?: "[]")
 
 fun addLoginUserData(userData: LoginDetail){
-    val data = getLoginUserData().toMutableList().apply { add(userData) }
+    val data = getAllLoginUserData().toMutableList().apply { add(userData) }
     ShoeStoreApp.sharedPref?.edit {
         putString(LOGIN_USERS_DATA, Gson().toJson(data))
     }
@@ -21,6 +19,6 @@ fun addLoginUserData(userData: LoginDetail){
 /**
  * Method to check if user is already present in DB
  */
-fun isUserAlreadyPresent(username: String): Boolean = getLoginUserData().find { it.username == username } != null
+fun isUserAlreadyPresent(username: String): Boolean = getAllLoginUserData().find { it.username == username } != null
 
-fun getUserLoginDetail(username: String): LoginDetail? = getLoginUserData().find { it.username == username }
+fun getUserLoginDetail(username: String): LoginDetail? = getAllLoginUserData().find { it.username == username }

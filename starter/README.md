@@ -36,7 +36,7 @@ Open the starter project in Android Studio
 
    * A new layout
    * At least 2 textviews
-   * A navigation button with actions to navigate to the instructions screen
+   * A navigation button with actions to navigate to the ins2tructions screen
 
 7. Create a new Instruction destination that includes:
 

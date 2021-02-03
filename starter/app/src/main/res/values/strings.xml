@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ShoeStore</string>
 
-<!--    Login -->
+    <!--    Login -->
     <string name="label_email">Email ID</string>
     <string name="label_password">Password</string>
     <string name="label_login">Login</string>
@@ -9,15 +9,15 @@
     <string name="label_cancel">Cancel</string>
     <string name="label_clear">Clear</string>
 
-<!--    Welcome-->
+    <!--    Welcome-->
     <string name="label_welcome">Welcome!</string>
     <string name="label_next">Next</string>
 
-<!--    Instruction-->
+    <!--    Instruction-->
     <string name="label_instruction">Instruction</string>
     <string name="label_instruction_info">This is an dummy instruction text. Hope you are having a nice day! Just click the button below &amp; start shopping awesome shoes!!!</string>
     <string name="label_start_shopping">Start shopping</string>
 
-<!--    Shoe List-->
+    <!--    Shoe List-->
     <string name="size_text">Size: %s</string>
 </resources>
