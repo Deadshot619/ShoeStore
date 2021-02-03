@@ -19,7 +19,6 @@ class WelcomeFragment : Fragment() {
     }
 
     private val mBinding by lazy { FragmentWelcomeBinding.inflate(layoutInflater) }
-    private val viewModel: WelcomeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

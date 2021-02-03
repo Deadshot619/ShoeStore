@@ -20,7 +20,7 @@ class InstructionFragment : Fragment() {
     }
 
     private val mBinding by lazy { FragmentInstructionBinding.inflate(layoutInflater) }
-    private val viewModel: InstructionViewModel by viewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

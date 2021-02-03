@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.udacity.shoestore.MainViewModel
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.LayoutShoeInfoBinding
 
@@ -21,7 +23,7 @@ class ShoeListFragment : Fragment() {
     private val mBinding: FragmentShoeListBinding by lazy { FragmentShoeListBinding.inflate(
         layoutInflater
     ) }
-    private val viewModel: ShoeListViewModel by viewModels()
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
