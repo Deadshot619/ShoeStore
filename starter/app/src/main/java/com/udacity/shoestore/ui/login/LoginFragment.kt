@@ -59,7 +59,8 @@ class LoginFragment : Fragment() {
 
            //Cancel
            btnCancel.setOnClickListener {
-
+               mBinding.etEmail.setText("")
+               mBinding.etPassword.setText("")
            }
 
            //New Login/User
