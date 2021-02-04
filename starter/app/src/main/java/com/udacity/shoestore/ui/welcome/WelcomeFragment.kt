@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
-import com.udacity.shoestore.ui.login.LoginFragmentDirections
 import com.udacity.shoestore.utils.addLoginUserData
 import com.udacity.shoestore.utils.showToast
+import com.udacity.shoestore.utils.userLoggedInData
 
 class WelcomeFragment : Fragment() {
 
@@ -30,8 +30,8 @@ class WelcomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val username = arguments?.let { WelcomeFragmentArgs.fromBundle(it).username }
-        mBinding.tvUsername.text = username
+        val user = userLoggedInData
+        mBinding.tvUsername.text = user?.username
 
         setUpClickListeners()
     }
