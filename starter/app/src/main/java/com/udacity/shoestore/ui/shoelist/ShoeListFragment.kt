@@ -7,10 +7,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.MainViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.LayoutShoeInfoBinding
+import com.udacity.shoestore.utils.showToast
 
 
 class ShoeListFragment : Fragment() {
@@ -64,7 +66,9 @@ class ShoeListFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.menu_add_shoe -> {}
+            R.id.menu_add_shoe -> {
+                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeInfoFragment(isEdit = false))
+            }
         }
         return super.onOptionsItemSelected(item)
     }

@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="data"
-            type="com.udacity.shoestore.models.Shoe" />
+            name="viewModel"
+            type="com.udacity.shoestore.MainViewModel" />
     </data>
 
     <ScrollView
@@ -26,7 +26,7 @@
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 tools:src="@tools:sample/avatars"
-                app:glideImage="@{data.images[0]}"
+                app:glideImage="@{viewModel.shoeDetail.images[0]}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -44,7 +44,9 @@
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.shoeDetail.name}"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--            Company -->
@@ -60,7 +62,9 @@
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.shoeDetail.company}"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--            Shoe Size-->
@@ -76,7 +80,9 @@
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.shoeDetail.size+``}"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--            Shoe Description-->
@@ -92,7 +98,9 @@
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.shoeDetail.description}"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--        Save & Add -->
