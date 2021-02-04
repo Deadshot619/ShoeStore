@@ -1,15 +1,14 @@
 package com.udacity.shoestore.ui.shoelist
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.udacity.shoestore.MainViewModel
+import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.LayoutShoeInfoBinding
 
@@ -29,6 +28,7 @@ class ShoeListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
         return mBinding.root
     }
 
@@ -57,5 +57,15 @@ class ShoeListFragment : Fragment() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.shoe_list_menu, menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.menu_add_shoe -> {}
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }
