@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.utils.addShoeListData
 import com.udacity.shoestore.utils.getShoeListData
 
 class MainViewModel: ViewModel() {
@@ -24,7 +25,13 @@ class MainViewModel: ViewModel() {
         refreshShoeListData()
     }
 
-    fun refreshShoeListData(){
+    private fun refreshShoeListData(){
         _shoeListData.value = getShoeListData()
+    }
+
+
+    fun addNewShoeListData(){
+        addShoeListData(shoeDetail)
+        refreshShoeListData()
     }
 }

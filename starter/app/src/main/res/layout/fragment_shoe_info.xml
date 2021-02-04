@@ -45,6 +45,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:text="@={viewModel.shoeDetail.name}"
                     />
             </com.google.android.material.textfield.TextInputLayout>
@@ -63,6 +64,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:text="@={viewModel.shoeDetail.company}"
                     />
             </com.google.android.material.textfield.TextInputLayout>
@@ -81,6 +83,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="0123456789."
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"
                     android:text="@={viewModel.shoeDetail.size+``}"
                     />
             </com.google.android.material.textfield.TextInputLayout>
@@ -99,6 +104,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:text="@={viewModel.shoeDetail.description}"
                     />
             </com.google.android.material.textfield.TextInputLayout>
