@@ -49,8 +49,10 @@ class ShoeInfoFragment : Fragment() {
                     if (it)
                         showToast("Edit")
                     else {
-                        mViewModel.addNewShoeListData()
-                        findNavController().navigateUp()
+                        if (validateShoeDetailData()) {
+                            mViewModel.addNewShoeListData()
+                            findNavController().navigateUp()
+                        }
                     }
                 }
             }
@@ -60,6 +62,18 @@ class ShoeInfoFragment : Fragment() {
                 findNavController().navigateUp()
             }
 
+        }
+    }
+
+    fun validateShoeDetailData(): Boolean{
+        mViewModel.shoeDetail.let {
+            when {
+                it.name.trim().isEmpty() -> mBinding.inputShoeName.error = "Enter Shoe Name"
+                it.company.trim().isEmpty() -> mBinding.inputCompany.error = "Enter Company Name"
+                it.description.trim().isEmpty() -> mBinding.inputShoeDescription.error = "Enter Shoe Description"
+                else -> return true
+            }
+            return false
         }
     }
 }

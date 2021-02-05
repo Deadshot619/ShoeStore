@@ -44,7 +44,7 @@ class ShoeListFragment : Fragment() {
         viewModel.run {
             shoeListData.observe(viewLifecycleOwner, Observer {
                 it?.let {
-                    for (data in it) {
+                    for (data in it.reversed()) {
                         val shoeView = LayoutShoeInfoBinding.inflate(layoutInflater)
                         shoeView.data = data
                         shoeView.root.layoutParams = LinearLayout.LayoutParams(

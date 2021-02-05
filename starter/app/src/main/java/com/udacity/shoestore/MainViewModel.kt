@@ -29,9 +29,9 @@ class MainViewModel: ViewModel() {
         _shoeListData.value = getShoeListData()
     }
 
-
     fun addNewShoeListData(){
         addShoeListData(shoeDetail)
         refreshShoeListData()
     }
+
 }
