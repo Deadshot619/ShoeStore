@@ -12,6 +12,7 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentInstructionBinding
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 import com.udacity.shoestore.ui.login.LoginViewModel
+import com.udacity.shoestore.utils.isInstructionCompleted
 
 class InstructionFragment : Fragment() {
 
@@ -37,6 +38,7 @@ class InstructionFragment : Fragment() {
 
     private fun setUpClickListeners() {
         mBinding.btnStartShopping.setOnClickListener {
+            isInstructionCompleted = true
             findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToShoeListFragment())
         }
     }

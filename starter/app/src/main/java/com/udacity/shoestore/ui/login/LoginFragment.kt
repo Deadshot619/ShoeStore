@@ -2,30 +2,35 @@ package com.udacity.shoestore.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.activity.viewModels
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.MainActivity
-import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ActivityLoginBinding
-import com.udacity.shoestore.databinding.FragmentLoginBinding
+import com.udacity.shoestore.databinding.ActivitySplashBinding
 import com.udacity.shoestore.utils.*
 
-class LoginActivity : AppCompatActivity() {
+class LoginFragment: Fragment() {
 
     private val mBinding by lazy { ActivityLoginBinding.inflate(layoutInflater) }
     private val mViewModel: LoginViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(mBinding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return mBinding.root
+    }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
         mBinding.run {
-            lifecycleOwner = this@LoginActivity
+            lifecycleOwner = viewLifecycleOwner
             viewModel = mViewModel
         }
 
@@ -75,7 +80,21 @@ class LoginActivity : AppCompatActivity() {
 
     private fun goToWelcomePage(){
         userLoggedInData = mViewModel.userDetail
-        startActivity(Intent(this, MainActivity::class.java))
+//        startActivity(Intent(requireActivity(), MainActivity::class.java))
+        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment(""))
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity)?.supportActionBar?.hide()
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        (activity as MainActivity)?.supportActionBar?.show()
+
     }
 
 }

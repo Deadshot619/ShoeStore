@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">ShoeStore</string>
 
+<!--    Screens-->
+    <string name="label_splash">Splash</string>
+    <string name="label_shoe_list">Shoe List</string>
+    <string name="label_shoe_detail">Shoe Detail</string>
+
+
     <!--    Login -->
     <string name="label_email">Email ID</string>
     <string name="label_password">Password</string>
