@@ -29,6 +29,14 @@ fun Fragment.showToast(msg: String, lengthLong: Boolean = false){
 }
 
 /**
+ * Method to clear app data
+ */
+fun clearAppData(){
+    userLoggedInData = null
+   isInstructionCompleted = false
+}
+
+/**
  * Method to prepare Shoe List Data
  */
 private fun prepareShoeListData(): List<Shoe> {

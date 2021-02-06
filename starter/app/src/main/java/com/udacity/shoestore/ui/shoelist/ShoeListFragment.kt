@@ -1,5 +1,8 @@
 package com.udacity.shoestore.ui.shoelist
 
+import android.app.ActivityManager
+import android.content.Context.ACTIVITY_SERVICE
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.LinearLayout
@@ -8,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.MainActivity
 import com.udacity.shoestore.MainViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
@@ -38,6 +42,7 @@ class ShoeListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpObservers()
+        setUpClickListeners()
     }
 
     private fun setUpObservers() {
@@ -59,6 +64,13 @@ class ShoeListFragment : Fragment() {
         }
     }
 
+    private fun setUpClickListeners(){
+        //Add FAB
+        mBinding.fabAddShoe.setOnClickListener {
+            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeInfoFragment(isEdit = false))
+        }
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.shoe_list_menu, menu)
@@ -66,8 +78,8 @@ class ShoeListFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.menu_add_shoe -> {
-                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeInfoFragment(isEdit = false))
+            R.id.menu_logout -> {
+                (activity as MainActivity).logoutUser()
             }
         }
         return super.onOptionsItemSelected(item)

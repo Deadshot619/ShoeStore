@@ -65,7 +65,7 @@ class ShoeInfoFragment : Fragment() {
         }
     }
 
-    fun validateShoeDetailData(): Boolean{
+    private fun validateShoeDetailData(): Boolean{
         mViewModel.shoeDetail.let {
             when {
                 it.name.trim().isEmpty() -> mBinding.inputShoeName.error = "Enter Shoe Name"

@@ -1,8 +1,10 @@
 package com.udacity.shoestore
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.content.edit
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -11,6 +13,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.ActivityMainBinding
+import com.udacity.shoestore.utils.clearAppData
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
@@ -64,5 +67,11 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.nav_host_fragment)
         return NavigationUI.navigateUp(navController, appBarConfiguration)
+    }
+
+    fun logoutUser(){
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
+        clearAppData()
     }
 }
