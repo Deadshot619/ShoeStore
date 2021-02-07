@@ -29,10 +29,14 @@
     <string name="title_activity_login">LoginActivity</string>
 
 <!--    Shoe Details-->
-    <string name="label_shoe_name">Shoe name</string>
-    <string name="label_company">Company</string>
-    <string name="label_shoe_size">Shoe size</string>
-    <string name="label_shoe_description">Shoe description</string>
+    <string name="label_shoe_name">Shoe name :</string>
+    <string name="label_company">Company :</string>
+    <string name="label_shoe_size">Shoe size :</string>
+    <string name="label_shoe_description">Shoe description :</string>
+    <string name="hint_shoe_name">Nike Hypervenom</string>
+    <string name="hint_company">Nike</string>
+    <string name="hint_shoe_size">6.9</string>
+    <string name="hint_shoe_description">Nice shoe...</string>
     <string name="label_save">Save</string>
     <string name="label_add">Add</string>
 

@@ -35,10 +35,11 @@ class MainActivity : AppCompatActivity() {
 
         // prevent nav gesture if not on start destination
         navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, bundle: Bundle? ->
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+
             when (nd.id) {
                 nc.graph.startDestination -> {
                     supportActionBar?.hide()
-                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }
                 R.id.loginFragment -> {
                     supportActionBar?.hide()
@@ -51,11 +52,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.shoeListFragment -> {
                     supportActionBar?.show()
                     supportActionBar?.setDisplayHomeAsUpEnabled(false)
-                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
                 }
                 else -> {
                     supportActionBar?.show()
-                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }
 
             }

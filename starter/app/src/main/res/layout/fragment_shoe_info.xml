@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.udacity.shoestore.MainViewModel" />
@@ -25,88 +26,133 @@
                 android:id="@+id/iv_shoe"
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
-                tools:src="@tools:sample/avatars"
                 app:glideImage="@{viewModel.shoeDetail.images[0]}"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
 
-<!--            Shoe Name-->
+            <!--            Shoe Name-->
+            <TextView
+                android:id="@+id/tv_shoe_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:text="@string/label_shoe_name"
+                android:textSize="@dimen/textSize_18"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_shoe" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_shoe_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/iv_shoe"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/space_8"
+                app:placeholderText="@string/hint_shoe_name"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="@dimen/space_16"
-                android:hint="@string/label_shoe_name"
-                >
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_shoe_name">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:text="@={viewModel.shoeDetail.name}"
-                    />
+                    android:text="@={viewModel.shoeDetail.name}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--            Company -->
+            <TextView
+                android:id="@+id/tv_shoe_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_company"
+                android:textSize="@dimen/textSize_18"
+                android:layout_marginTop="@dimen/space_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/input_shoe_name" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_company"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/input_shoe_name"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/space_8"
+                app:placeholderText="@string/hint_company"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="@dimen/space_16"
-                android:hint="@string/label_company"
-                >
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_shoe_company">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:text="@={viewModel.shoeDetail.company}"
-                    />
+                    android:text="@={viewModel.shoeDetail.company}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--            Shoe Size-->
+            <TextView
+                android:id="@+id/tv_shoe_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_shoe_size"
+                android:layout_marginTop="@dimen/space_16"
+                android:textSize="@dimen/textSize_18"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/input_company" />
+
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_shoe_size"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/input_company"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/space_8"
+                app:placeholderText="@string/hint_shoe_size"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="@dimen/space_16"
-                android:hint="@string/label_shoe_size"
-                >
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_shoe_size">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:digits="0123456789."
                     android:inputType="numberDecimal"
                     android:singleLine="true"
-                    android:text="@={viewModel.shoeDetail.size+``}"
-                    />
+                    android:text="@={viewModel.shoeDetail.size+``}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--            Shoe Description-->
+            <TextView
+                android:id="@+id/tv_shoe_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_shoe_description"
+                android:textSize="@dimen/textSize_18"
+                android:layout_marginTop="@dimen/space_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/input_shoe_size" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_shoe_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/input_shoe_size"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/space_8"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="@dimen/space_16"
-                android:hint="@string/label_shoe_description"
-                >
+                app:placeholderText="@string/hint_shoe_description"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_shoe_description">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:text="@={viewModel.shoeDetail.description}"
-                    />
+
+                    android:text="@={viewModel.shoeDetail.description}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--        Save & Add -->
@@ -122,13 +168,13 @@
             <!--        Cancel   -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_cancel"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_cancel"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_marginEnd="@dimen/space_16"
-                app:layout_constraintEnd_toStartOf="@id/btn_save_add"
+                android:text="@string/label_cancel"
                 app:layout_constraintBottom_toBottomOf="@id/btn_save_add"
+                app:layout_constraintEnd_toStartOf="@id/btn_save_add"
                 app:layout_constraintTop_toTopOf="@id/btn_save_add" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
