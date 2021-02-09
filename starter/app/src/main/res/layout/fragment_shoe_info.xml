@@ -10,6 +10,10 @@
             type="com.udacity.shoestore.MainViewModel" />
     </data>
 
+    <!--
+Constraint layout makes it easier to layout more complex UIs like this effectively & avoids nesting
+layouts which can happen in Linear Layouts.
+-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
